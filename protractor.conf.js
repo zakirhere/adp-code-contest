@@ -24,7 +24,7 @@ exports.config = {
   // relevant cucumber command line options
   cucumberOpts: {
     format: "summary",
-    require: "features/upcoming-shoes_step.js"
+    require: "features/steps/*.js"
   },
   
   directConnect:true,
