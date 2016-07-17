@@ -5,5 +5,9 @@
     "cucumber": "^1.1.0",
     "protractor": "^3.3.0",
     "protractor-cucumber-framework": "^0.6.0"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0"
   }
 }

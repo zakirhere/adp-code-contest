@@ -23,8 +23,13 @@ exports.config = {
 
   // relevant cucumber command line options
   cucumberOpts: {
-    format: "summary"
+    format: "summary",
+    require: "features/upcoming-shoes_step.js"
   },
   
-  directConnect:true
+  directConnect:true,
+  
+  onPrepare: function() {
+    browser.ignoreSynchronization = true;
+  }
 };
