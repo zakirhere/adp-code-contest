@@ -9,5 +9,8 @@
   "dependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0"
+  },
+  "scripts": {
+    "postinstall": "node_modules/protractor/bin/webdriver-manager update"
   }
 }
