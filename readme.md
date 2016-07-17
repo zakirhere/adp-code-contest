@@ -8,4 +8,4 @@ npm install
 ```
 
 ## Execution CLI
-`node_modules/.bin/protractor protractor.conf.js`
+`node_modules/.bin/protractor protractor.cuke.js`

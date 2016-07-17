@@ -8,3 +8,13 @@ Scenario: View upcoming shoes release for a month from now
  And I should see relevant image of each shoe item
  And I should see suggested pricing of each shoe
 
+Scenario: To navigate back and forth within shoe store
+ Given I log in to shoe store
+ When I click "May" tab
+ Then I click "June" tab
+ And I click "August" tab
+ And I click "November" tab
+ And I could pause the test
+ And I click "December" tab
+ And I click "January" tab
+ And I click "March" tab
