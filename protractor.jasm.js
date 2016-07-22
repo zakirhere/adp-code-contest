@@ -17,6 +17,7 @@ exports.config = {
     defaultTimeoutInterval: 500000,
     isVerbose: true
   },
+  restartBrowserBetweenTests: true,
 
   onPrepare: function() {
     browser.ignoreSynchronization = true;

@@ -2,8 +2,8 @@
   "name": "application-name",
   "version": "0.0.1",
   "devDependencies": {
-    "cucumber": "^1.1.0",
-    "protractor": "^3.3.0",
+    "cucumber": "0.10.4",
+    "protractor": "^3.1.1",
     "protractor-cucumber-framework": "^0.6.0"
   },
   "dependencies": {

@@ -17,15 +17,18 @@ exports.config = {
   cucumberOpts: {
     require: [
       'support/env.js',
-      'features/steps/*.js'
+      'features/step_definitions/*.js'
     ],
     format: 'pretty', // or summary
     keepAlive: false
   },
-
+  plugin: {
+    skipAngularStability: true
+  },
   directConnect:true,
-
-  onPrepare: function() {
-    browser.ignoreSynchronization = true;
-  }
+  restartBrowserBetweenTests: true
+  //
+  // onPrepare: function() {
+  //   browser.ignoreSynchronization = true;
+  // }
 };

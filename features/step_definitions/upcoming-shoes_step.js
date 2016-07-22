@@ -4,9 +4,18 @@ var chaiAsPromised = require("chai-as-promised");
 var EC = protractor.ExpectedConditions;
 
 chai.use(chaiAsPromised);
+var expect = chai.expect;
+var assert = chai.assert;
+chai.should();
+Object.defineProperty(protractor.promise.Promise.prototype, 'should', {
+  get: Object.prototype.__lookupGetter__('should'),
+  set: Object.prototype.__lookupSetter__('should')
+});
+
 
 var mySteps = function() {
   this.Given(/^I log in to shoe store$/, function () {
+    browser.ignoreSynchronization = true;
     return browser.get('');
   });
 
@@ -16,8 +25,8 @@ var mySteps = function() {
   });
 
   this.Then(/^I should see more than "([^"]*)" item listed$/, function (count) {
-    // return $$('div.shoe_result').count().should.eventually.equal(2);
-    return true;
+    return $$('div.shoe_result').count().should.eventually.equal(2);
+    // return true;
   });
 
 
