@@ -9,6 +9,7 @@ npm install
 
 ## Execution CLI
 Just for comparison purpose I implemented this using both commonly used test framework. The default configuration will go to cucumber but you can specify to run this for Jasmine as shown below
-`node_modules/.bin/protractor protractor.cuke.js`
-`node_modules/.bin/protractor protractor.jasm.js`
-
+```shell
+node_modules/.bin/protractor protractor.cuke.js
+node_modules/.bin/protractor protractor.jasm.js
+```
