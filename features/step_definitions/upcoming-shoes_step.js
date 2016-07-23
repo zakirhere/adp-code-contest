@@ -1,17 +1,6 @@
 'use strict';
-var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised");
-var EC = protractor.ExpectedConditions;
 
-chai.use(chaiAsPromised);
-var expect = chai.expect;
-var assert = chai.assert;
-chai.should();
-Object.defineProperty(protractor.promise.Promise.prototype, 'should', {
-  get: Object.prototype.__lookupGetter__('should'),
-  set: Object.prototype.__lookupSetter__('should')
-});
-
+var monthlyRelease = require('../page_objects/po.monthly-release');
 
 var mySteps = function() {
   this.Given(/^I log in to shoe store$/, function () {
@@ -21,27 +10,24 @@ var mySteps = function() {
 
   this.When(/^I click "([^"]*)" tab$/, function (linkText) {
     element(by.linkText(linkText)).click();
-    return browser.wait(EC.textToBePresentInElement($('div.title'), linkText + "'s Shoes"), 8000);
+    return browser.wait(EC.textToBePresentInElement(monthlyRelease.shoe_title, linkText + "'s Shoes"), 8000);
   });
 
-  this.Then(/^I should see more than "([^"]*)" item listed$/, function (count) {
-    return $$('div.shoe_result').count().should.eventually.equal(2);
-    // return true;
+  this.Then(/^I should see more than (\d+) item listed$/, function (count) {
+    return monthlyRelease.shoe_list.allShoeResults.count().should.eventually.equal(parseInt(count));
   });
 
 
   this.Then(/^I should see brief description of each shoe$/, function () {
-    // Write code here that turns the phrase above into concrete actions
-    return;
+    return monthlyRelease.shoe_list.allShoesDescriptions.count().should.eventually.greaterThan(1);
   });
 
   this.Then(/^I should see relevant image of each shoe item$/, function () {
-    // Write code here that turns the phrase above into concrete actions
-    return;
+    return monthlyRelease.shoe_list.allShoesImage.count().should.eventually.greaterThan(1);
   });
 
   this.Then(/^I should see suggested pricing of each shoe$/, function () {
-    return console.log('doing nothing');
+    return monthlyRelease.shoe_list.allShoesPrice.count().should.eventually.greaterThan(1);
   });
 
   this.Then(/^I could pause the test$/, function () {

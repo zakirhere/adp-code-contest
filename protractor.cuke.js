@@ -16,7 +16,7 @@ exports.config = {
 
   cucumberOpts: {
     require: [
-      'support/env.js',
+      'support/*.js',
       'features/step_definitions/*.js'
     ],
     format: 'pretty', // or summary
