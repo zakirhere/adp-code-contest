@@ -16,10 +16,22 @@ describe('View upcoming shoes release for a month from now', function() {
     element(by.linkText(linkText)).click();
     browser.wait(EC.textToBePresentInElement(titleObj, linkText + "'s Shoes"), 8000);
     // browser.pause();
+    debugger;
     expect(titleObj.getText()).toContain(linkText);
   });
 
   it('does nothing', function() {
     expect(true).toBe(true);
   });
+
+
+  it('does nothing at all', function() {
+    expect(true).toBe(true);
+  });
+
+
+  it('really does nothing', function() {
+    expect(true).toBe(true);
+  });
+  
 });

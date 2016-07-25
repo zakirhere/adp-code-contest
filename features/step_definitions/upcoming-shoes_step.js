@@ -31,7 +31,9 @@ var mySteps = function() {
   });
 
   this.Then(/^I could pause the test$/, function () {
-    return browser.pause();
+    // browser.pause();
+    debugger;
+    return browser.sleep(1);
   });
 
 };
