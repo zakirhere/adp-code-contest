@@ -1,6 +1,7 @@
 'use strict';
 
-var monthlyRelease = require('../page_objects/po.monthly-release');
+// var monthlyRelease = require('../page_objects/po.monthly-release');
+var monthlyRelease = require('../page_objects/monthly-release');
 
 var mySteps = function() {
   this.Given(/^I log in to shoe store$/, function () {
@@ -31,11 +32,28 @@ var mySteps = function() {
   });
 
   this.Then(/^I could pause the test$/, function () {
-    // browser.pause();
-    debugger;
-    return browser.sleep(1);
+    browser.pause();
   });
 
+  this.When(/^I enter "([^"]*)" as email address$/, function (email) {
+    return monthlyRelease.subscribeEmail(email);
+  });
+
+  this.When(/^I submit the email subscription$/, function () {
+    return monthlyRelease.submitEmail();
+  });
+  
+  this.Then(/^I should see successful notification message containing "([^"]*)"$/, function (email) {
+    return monthlyRelease.validateEmailNotifyMessage(email);
+  });
+
+  this.When(/^I save some text to clipboard$/, function () {
+    return monthlyRelease.copyTextToClipboard("zakirhere@gmail.com");
+  });
+
+  this.When(/^I simulate keyboard paste through Ctrl plus V$/, function () {
+    return monthlyRelease.pasteTextToEmailInput();
+  })
 };
 
 module.exports = mySteps;

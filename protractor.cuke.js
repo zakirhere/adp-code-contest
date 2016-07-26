@@ -1,9 +1,13 @@
 /**
  * Created by hussaiz on 6/19/16.
  */
+var firefox_only_specs = [
+  "./**/ptor*.feature"
+];
+
 exports.config = {
   specs: [
-    './**/*.feature'
+    './**/ptor*.feature'
   ],
 
   baseUrl: 'https://rb-shoe-store.herokuapp.com',
@@ -25,10 +29,25 @@ exports.config = {
   plugin: {
     skipAngularStability: true
   },
-  directConnect:true,
-  restartBrowserBetweenTests: true
-  //
-  // onPrepare: function() {
-  //   browser.ignoreSynchronization = true;
-  // }
+  directConnect: true,
+  // restartBrowserBetweenTests: true,
+
+  multiCapabilities: [
+    // {
+    //   browserName: "chrome",
+    //   chromeOptions: {
+    //     args: ["incognito", "disable-extensions", "start-maximized"]
+    //   },
+    //   specs: [
+    //     "../specs/*.spec.js"
+    //   ],
+    //   exclude: firefox_only_specs
+    // },
+    {
+      browserName: "firefox",
+      specs: firefox_only_specs
+    }
+  ]
+
+
 };
